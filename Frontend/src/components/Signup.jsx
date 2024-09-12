@@ -2,10 +2,12 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import axios from "axios";
+import { baseUrl } from "../url.js";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
+
 
 function Signup() {
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ function Signup() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4001/user/signup", userinfo) //this sends post request with user data from submit.
+      .post(`${baseUrl}/user/signup`, userinfo) //this sends post request with user data from submit.
       .then((res) => {
         //console.log(res.data);
         if (res.data) toast.success("User Signed Up successfully!");

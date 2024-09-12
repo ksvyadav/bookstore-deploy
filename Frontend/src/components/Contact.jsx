@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { baseUrl } from "../url.js";
 
 function Contact() {
   const {
@@ -28,7 +29,7 @@ function Contact() {
     //console.log(data);
     await axios .post("https://api.web3forms.com/submit", usermailinfo)
     await axios 
-      .post("http://localhost:4001/contact/", userinfo) //this sends post request with user data from submit.
+      .post(`${baseUrl}/contact/`, userinfo) //this sends post request with user data from submit.
       .then((res) => {
         console.log(res.data);
         if (res.data) toast.success("Your Message Saved successfully!");

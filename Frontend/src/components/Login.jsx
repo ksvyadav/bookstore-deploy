@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { baseUrl } from "../url";
 
 function Login() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Login() {
       password: data.password,
     };
     await axios
-      .post("http://localhost:4001/user/login", userinfo) //this sends post request with user data from submit.
+      .post(`${baseUrl}/user/login`, userinfo) //this sends post request with user data from submit.
       .then((res) => {
         console.log(res.data);
         if (res.data) {
