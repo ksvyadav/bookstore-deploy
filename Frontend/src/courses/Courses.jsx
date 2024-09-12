@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Cards from "../components/Cards.jsx";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../url.js";
 
 function courses() {
   // console.log(list)
@@ -11,7 +12,7 @@ function courses() {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get(`${baseUrl}/book`);
         //console.log(res.data)
         setbook(res.data);
       } catch (error) {
