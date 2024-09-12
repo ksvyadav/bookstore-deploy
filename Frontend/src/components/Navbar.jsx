@@ -94,7 +94,7 @@ function navbar() {
                 {navItems}
               </ul>
             </div>
-            <a href="/" className="btn btn-ghost text-2xl font-bold cursor-pointer">
+            <a href="/" className="btn btn-ghost text-xl md:text-2xl font-bold cursor-pointer">
               BookStore
             </a>
           </div>
