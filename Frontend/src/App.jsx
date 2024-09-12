@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
 import Signup from "./components/Signup";
 import Contact from "./components/Contact";
-import { useAuth } from "./context/authProvider";
+import { useAuth } from "./context/AuthProvider";
 import About from "./components/About";
 
 

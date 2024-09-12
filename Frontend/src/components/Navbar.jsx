@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
-import { useAuth } from "../context/authProvider";
+import { useAuth } from "../context/AuthProvider";
 import Logout from "./Logout";
 
 function navbar() {
