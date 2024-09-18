@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { Loader } from "lucide-react";
+
 import { baseUrl } from "../url";
 
 function Login() {
+  const [isLoading, setisLoading] = useState("");
   const navigate = useNavigate();
   const {
     register,
@@ -18,11 +22,15 @@ function Login() {
       email: data.email,
       password: data.password,
     };
+
+    setisLoading(true);
     await axios
       .post(`${baseUrl}/user/login`, userinfo) //this sends post request with user data from submit.
       .then((res) => {
         console.log(res.data);
+
         if (res.data) {
+          setisLoading(false);
           document.getElementById("my_modal_3").close();
           toast.success("User Logged In successfully!");
           setTimeout(() => {
@@ -34,6 +42,7 @@ function Login() {
       })
       .catch((err) => {
         if (err.response) {
+          setisLoading(false);
           toast.error("Error : " + err.response.data.message); // to give exact error message on alert
           setTimeout(() => {}, 1000);
         }
@@ -59,7 +68,7 @@ function Login() {
               <input
                 type="email"
                 placeholder=" Email"
-                className="form-control border-2 rounded dark:bg-slate-700"
+                className="max-w-md w-full form-control border-1 rounded dark:bg-slate-700"
                 {...register("email", { required: true })}
               />
               <br />
@@ -76,7 +85,7 @@ function Login() {
               <input
                 type="password"
                 placeholder=" Password"
-                className="form-control border-2 rounded dark:bg-slate-700"
+                className="max-w-md w-full form-control border-1 rounded dark:bg-slate-700"
                 {...register("password", { required: true })}
               />
               <br />
@@ -89,9 +98,16 @@ function Login() {
 
             {/* <!-- Submit button --> */}
             <div className="flex justify-between mt-6">
-              <button className=" bg-green-500 hover:bg-green-600 duration-200 px-2 py-1 hover:pointer  rounded-lg">
-                Login
-              </button>
+              <motion.button
+                className=" bg-green-500 hover:bg-green-600 duration-200 px-2 py-1 hover:pointer  rounded-lg"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <Loader className="w-6 h-6 animate-spin  mx-auto" />
+                ) : (
+                  "Login"
+                )}
+              </motion.button>
               <p>
                 Not Registered?{" "}
                 <a

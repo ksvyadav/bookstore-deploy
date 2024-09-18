@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer";
-import Cards from "../components/Cards.jsx";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 import { baseUrl } from "../url.js";
+
+import Navbar from "../components/Navbar.jsx";
+import Cards from "../components/Cards.jsx";
+import Footer from "../components/Footer";
 
 function courses() {
   // console.log(list)
@@ -14,7 +16,7 @@ function courses() {
       try {
         const res = await axios.get(`${baseUrl}/book`);
         //console.log(res.data)
-        setbook(res.data);
+        setbook(res.data.filter((data) => data.category === "Paid"));
       } catch (error) {
         console.log(error);
       }
