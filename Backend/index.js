@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://bookstore-deploy-13o7mg4j6-ksvyadavs-projects.vercel.app",
+    origin: "https://bookstore-deploy-mb9sb3ccd-ksvyadavs-projects.vercel.app/",
     credentials: true,
   })
 ); // for running backend and frontend and render backend data to frontend
