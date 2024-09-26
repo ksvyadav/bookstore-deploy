@@ -22,10 +22,12 @@ function Login() {
       email: data.email,
       password: data.password,
     };
+    const email = data.email;
+    const password = data.password;
 
     setisLoading(true);
     await axios
-      .post(`${baseUrl}/user/login`, userinfo) //this sends post request with user data from submit.
+      .post(`${baseUrl}/user/login`, { email, password }) //this sends post request with user data from submit.
       .then((res) => {
         console.log(res.data);
 

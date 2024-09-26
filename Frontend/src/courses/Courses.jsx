@@ -16,7 +16,7 @@ function courses() {
       try {
         const res = await axios.get(`${baseUrl}/book`);
         //console.log(res.data)
-        setbook(res.data.filter((data) => data.category === "Paid"));
+        setbook(res.data.filter((data) => data.category !== "Free"));
       } catch (error) {
         console.log(error);
       }
@@ -47,7 +47,7 @@ function courses() {
             </Link>
           </div>
         </div>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3">
           {book.map((item) => (
             <Cards item={item} key={item.id} />
           ))}

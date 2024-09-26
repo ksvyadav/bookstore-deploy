@@ -14,6 +14,8 @@ import Login from "./Login";
 import FloatingShape from "./FloatingShape.jsx";
 import PasswordStrengthMeter from "./PasswordStrengthMeter.jsx";
 
+//axios.defaults.withCredentials = true;
+
 function Signup() {
   const navigate = useNavigate();
   const [isLoading, setisLoading] = useState("");
@@ -30,7 +32,6 @@ function Signup() {
       email: data.email,
       password: data.password,
     };
-
     setisLoading(true);
     await axios
       .post(`${baseUrl}/user/signup`, userinfo) //this sends post request with user data from submit.

@@ -5,7 +5,7 @@ import Logout from "./Logout";
 
 function navbar() {
   const [authUser, setAuthuser] = useAuth();
-  console.log(authUser);
+  //console.log(authUser);
 
   const [theme, settheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -94,7 +94,10 @@ function navbar() {
                 {navItems}
               </ul>
             </div>
-            <a href="/" className="btn btn-ghost text-xl md:text-2xl font-bold cursor-pointer">
+            <a
+              href="/"
+              className="btn btn-ghost text-xl md:text-2xl font-bold cursor-pointer"
+            >
               BookStore
             </a>
           </div>
@@ -152,17 +155,21 @@ function navbar() {
                 </svg>
               </label>
             </div>
-            {
-              authUser?<Logout/>:<div>
-              <a
-              className="btn hover:bg-green-300 bg-green-300 dark:bg-green-700 dark:text-white"
-              onClick={() => document.getElementById("my_modal_3").showModal()}
-            >
-              Login
-            </a>
-            <Login />
-            </div>
-            } 
+            {authUser ? (
+              <Logout />
+            ) : (
+              <div>
+                <a
+                  className="btn hover:bg-green-300 bg-green-300 dark:bg-green-700 dark:text-white"
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                >
+                  Login
+                </a>
+                <Login />
+              </div>
+            )}
           </div>
         </div>
       </div>

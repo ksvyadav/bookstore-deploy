@@ -9,25 +9,31 @@ function Banner() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    arrows: false,
     slidesToScroll: 1,
   };
 
   return (
     <>
-    {/* //max-w-screen-2xl container mx-auto md:px-20 px-4 */}
-      <div className="hidden md:block "> 
+      {/* //max-w-screen-2xl container mx-auto md:px-20 px-4 */}
+      <div className="hidden md:block ">
         <div className="slider-container">
           <Slider {...settings}>
             <div>
-              <a href="/course"><h3><img class="h-96 w-full " src={Bookstore1} alt="" />
-              </h3></a>
+              <a href="/course">
+                <h3>
+                  <img class="h-96 w-full " src={Bookstore1} alt="" />
+                </h3>
+              </a>
             </div>
             <div>
-              <h3><img class="h-96 w-full " src={Bookstore2} alt="" />
+              <h3>
+                <img class="h-96 w-full " src={Bookstore2} alt="" />
               </h3>
             </div>
             <div>
-              <h3><img class="h-96 w-full " src={Bookstore3} alt="" />
+              <h3>
+                <img class="h-96 w-full " src={Bookstore3} alt="" />
               </h3>
             </div>
           </Slider>
