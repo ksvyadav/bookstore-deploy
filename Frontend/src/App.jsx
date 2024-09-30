@@ -52,11 +52,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/course"
-            element={
-              <ProtectedRoute>
-                <Courses />
-              </ProtectedRoute>
-            } //authUser ? <Courses /> : <Navigate to="/signup" />
+            element={authUser ? <Courses /> : <Navigate to="/signup" />} //<ProtectedRoute> <Courses /></ProtectedRoute>
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
